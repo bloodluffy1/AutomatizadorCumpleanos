@@ -39,7 +39,7 @@ public class Main {
         int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
         int minutosActuales = calendario.get(Calendar.MINUTE);
         int segundosActuales = calendario.get(Calendar.SECOND);
-        long tiempoHastaLas930PM = (21 - horaActual) * 60 * 60 * 1000 + (30 - minutosActuales) * 60 * 1000 - segundosActuales * 1000;
+        long tiempoHastaLas930PM = (18 - horaActual) * 60 * 60 * 1000 + (50 - minutosActuales) * 60 * 1000 - segundosActuales * 1000;
         if (tiempoHastaLas930PM < 0) {
             tiempoHastaLas930PM += 24 * 60 * 60 * 1000;
         }
@@ -127,7 +127,9 @@ public class Main {
     * */
     private static void ValidaProcesoEnvioSaludo(List<Empleado> listaEmpleados)
     {
-        for (Empleado emp : listaEmpleados) {
+        Iterator<Empleado> iter = listaEmpleados.iterator();
+        while (iter.hasNext()) {
+            Empleado emp = iter.next();
             Date fechaActual = new Date();
             Calendar FechaActual = Calendar.getInstance();
             FechaActual.setTime(fechaActual);
